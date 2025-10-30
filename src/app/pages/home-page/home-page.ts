@@ -5,6 +5,7 @@ import {Projects} from '../../components/projects/projects';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {faGithub, faLinkedin} from '@fortawesome/free-brands-svg-icons';
 import {NgClass} from '@angular/common';
+import {faFileDownload} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home-page',
@@ -49,4 +50,6 @@ export class HomePage {
       observer.observe(section.nativeElement);
     }
   }
+
+  protected readonly faFileDownload = faFileDownload;
 }
