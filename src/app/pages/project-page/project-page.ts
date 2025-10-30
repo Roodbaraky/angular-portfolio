@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {map, Observable} from 'rxjs';
-import {Project} from '../../models/project.model';
+import {IProject} from '../../models/project.model';
 import {ActivatedRoute} from '@angular/router';
 import {AsyncPipe} from '@angular/common';
 
@@ -14,7 +14,7 @@ import {AsyncPipe} from '@angular/common';
   styleUrl: './project-page.css',
 })
 export class ProjectPage {
-project$: Observable<Project|null>;
+project$: Observable<IProject|null>;
 
 constructor(route:ActivatedRoute) {
   this.project$ = route.data.pipe(map((data: any) => data.project));

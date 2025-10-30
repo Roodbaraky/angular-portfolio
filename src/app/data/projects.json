@@ -1,8 +1,19 @@
 {"projects":[
   {
     "id": 1,
-    "name": "project1",
-    "description": "test"
+    "name": "ExamGenie",
+    "description": "Exam Genie is a learning aid used by teachers to generate bespoke revision materials in a variety of formats specially tailored to their classes scheme of work and ability level.",
+    "imageUrl": "https://raw.githubusercontent.com/Roodbaraky/portfolio/826cfdda62f18f253cdea9fa15b7c6a8ee769b6f/public/assets/examgenie.png",
+    "link": "https://examwiz.netlify.app/",
+    "tags": ["TypeScript", "React", "Supabase", "PostgreSQL"]
+  },
+  {
+    "id": 2,
+    "name": "SkillFlash",
+    "description": "SkillFlash is a full-stack project written in Typescript utilsing the React Native framework. Its backend is powered by MongoDB and Express. SkillFlash is an AI-powered flash cards app which aims to help users prepare for interviews for tech roles, intepretting keywords from job descriptions in prompts to generate bespoke revision material.",
+    "imageUrl": "https://raw.githubusercontent.com/Roodbaraky/portfolio/refs/heads/main/public/assets/app2-proj.png",
+    "link": "https://northcoders.com/project-phase/skillflash",
+    "tags": ["TypeScript", "React Native", "MongoDB", "Cohere AI"]
   }
 ]
 }
