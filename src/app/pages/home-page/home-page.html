@@ -12,32 +12,47 @@
         </p>
       </div>
 
-      <nav class="hidden lg:block space-y-4 uppercase text-sm tracking-wide text-slate-500">
-        <a href="#about" class="block hover:text-slate-200">About</a>
-        <a href="#experience" class="block hover:text-slate-200">Experience</a>
-        <a href="#projects" class="block hover:text-slate-200">Projects</a>
+      <nav class="hidden lg:block space-y-4 uppercase text-sm font-semibold tracking-wide text-slate-500">
+        @for (section of sections; track section.id) {
+          <div class="flex justify-between gap-2 w-28">
+            <a [href]="'#'+section.id" class="block hover:text-slate-200"
+               [class.font-bold]="currentSection() === section.id"
+               [class.text-white]="currentSection() === section.id"
+               [class.text-gray-400]="currentSection() !== section.id"
+            >
+              {{ section.label }} </a><span [ngClass]="{
+              'text-teal-300':true,
+           hidden:currentSection() !== section.id,
+           inline:currentSection() === section.id
+           }">⇠</span></div>
+        }
       </nav>
 
       <div class="flex gap-3 text-slate-500">
-        <a href="https://github.com/roodbaraky" target="_blank" class="text-xl hover:text-slate-200 hover:scale-110 transition-all">
+        <a href="https://github.com/roodbaraky" target="_blank"
+           class="text-xl hover:text-slate-200 hover:scale-110 transition-all">
           <fa-icon [icon]="faGithub"></fa-icon>
         </a>
-        <a href="https://www.linkedin.com/in/koorosh-roodbaraky/" target="_blank" class=" text-xl hover:text-slate-200 hover:scale-110 transition-all">
-            <fa-icon [icon]="faLinkedin"></fa-icon>
+        <a href="https://www.linkedin.com/in/koorosh-roodbaraky/" target="_blank"
+           class=" text-xl hover:text-slate-200 hover:scale-110 transition-all">
+          <fa-icon [icon]="faLinkedin"></fa-icon>
         </a>
 
       </div>
     </aside>
 
     <!-- RIGHT COLUMN -->
-    <main class="space-y-24">
-      <section id="about">
+    <main class="space-y-24 ">
+      <section id="about"
+               #sectionElements>
         <app-about></app-about>
       </section>
-      <section id="experience">
+      <section id="experience"
+               #sectionElements>
         <app-experience></app-experience>
       </section>
-      <section id="projects">
+      <section id="projects"
+               #sectionElements>
         <app-projects></app-projects>
       </section>
     </main>
