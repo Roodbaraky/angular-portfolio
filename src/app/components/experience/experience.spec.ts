@@ -1,10 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Experience } from './experience';
+import { IExperience } from './experience';
 
 describe('Experience', () => {
-  let component: Experience;
-  let fixture: ComponentFixture<Experience>;
+  let component: IExperience;
+  let fixture: ComponentFixture<IExperience>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

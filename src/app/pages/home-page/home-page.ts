@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {About} from '../../components/about/about/about';
-import {Experience} from '../../components/experience/experience/experience';
+import {About} from '../../components/about/about';
+import {Experience} from '../../components/experience/experience';
 import {Projects} from '../../components/projects/projects';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {faGithub, faLinkedin} from '@fortawesome/free-brands-svg-icons';
