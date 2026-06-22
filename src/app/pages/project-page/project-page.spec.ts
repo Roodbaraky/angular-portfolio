@@ -1,4 +1,7 @@
+import { provideZonelessChangeDetection } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
 
 import { ProjectPage } from './project-page';
 
@@ -8,7 +11,16 @@ describe('ProjectPage', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ProjectPage]
+      imports: [ProjectPage],
+      providers: [
+        provideZonelessChangeDetection(),
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            data: of({ project: null })
+          }
+        }
+      ]
     })
     .compileComponents();
 

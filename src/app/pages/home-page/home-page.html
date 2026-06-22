@@ -37,10 +37,12 @@
            class="hover:text-slate-200 hover:scale-110 transition-all">
           <fa-icon [icon]="faLinkedin"></fa-icon>
         </a>
-        <a href="" target="_blank" class="hover:text-slate-200 hover:scale-110 transition-all group" >
+        <button type="button"
+                (click)="openCvModal()"
+                class="hover:text-slate-200 hover:scale-110 transition-all group cursor-pointer">
           <fa-icon [icon]="faFileDownload"></fa-icon>
           <span class="hidden text-xs group-hover:inline">Download my CV</span>
-        </a>
+        </button>
 
       </div>
     </aside>
@@ -63,3 +65,40 @@
 
   </div>
 </div>
+
+@if (isCvModalOpen) {
+  <div class="cv-modal-backdrop fixed inset-0 z-50 bg-slate-950/85 px-4 py-6 backdrop-blur-sm lg:px-8 lg:py-10"
+       (click)="closeCvModal()">
+    <div class="cv-modal-panel mx-auto flex h-full w-full max-w-6xl flex-col overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/95 shadow-[0_24px_80px_rgba(2,6,23,0.65)]"
+         (click)="$event.stopPropagation()">
+      <div class="flex flex-col gap-4 border-b border-slate-800 px-5 py-5 sm:px-6 lg:flex-row lg:items-end lg:justify-between">
+        <div class="space-y-1">
+          <p class="text-xs font-semibold uppercase tracking-[0.24em] text-slate-500">Curriculum Vitae</p>
+          <h2 class="text-2xl font-semibold text-slate-100">Koorosh Roodbaraky</h2>
+        </div>
+        <div class="flex flex-wrap items-center gap-3">
+          <a [href]="cvDownloadUrl"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="inline-flex items-center rounded-full bg-teal-400/10 px-4 py-2 text-sm font-medium text-teal-300 transition hover:bg-teal-400/20 hover:text-teal-200">
+            Download PDF
+          </a>
+          <button type="button"
+                  (click)="closeCvModal()"
+                  class="inline-flex items-center rounded-full border border-slate-700 px-4 py-2 text-sm font-medium text-slate-300 transition hover:border-slate-500 hover:text-slate-100">
+            Close
+          </button>
+        </div>
+      </div>
+
+      <div class="flex-1 bg-slate-950/40 p-3 sm:p-4">
+        <div class="h-full overflow-hidden rounded-xl border border-slate-800 bg-white shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]">
+          <iframe [src]="cvPreviewUrl"
+                  title="CV preview"
+                  class="h-full min-h-0 w-full bg-white">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+}

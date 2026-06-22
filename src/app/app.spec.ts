@@ -19,7 +19,7 @@ describe('App', () => {
   it('should render title', () => {
     const fixture = TestBed.createComponent(App);
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, angular-portfo');
+    const app = fixture.componentInstance as App & { title: () => string };
+    expect(app.title()).toBe('Koorosh Roodbaraky');
   });
 });

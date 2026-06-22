@@ -1,0 +1,29 @@
+.cv-modal-backdrop {
+  animation: cv-modal-fade-in 180ms ease-out;
+}
+
+.cv-modal-panel {
+  animation: cv-modal-panel-in 220ms ease-out;
+}
+
+@keyframes cv-modal-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes cv-modal-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
