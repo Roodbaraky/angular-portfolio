@@ -1,10 +1,18 @@
-import {Component, ElementRef, HostListener, inject, QueryList, signal, ViewChildren, WritableSignal} from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  inject,
+  QueryList,
+  signal,
+  ViewChildren,
+  WritableSignal
+} from '@angular/core';
 import {About} from '../../components/about/about';
 import {Experience} from '../../components/experience/experience';
 import {Projects} from '../../components/projects/projects';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {faGithub, faLinkedin} from '@fortawesome/free-brands-svg-icons';
-import {NgClass} from '@angular/common';
 import {faFileDownload} from '@fortawesome/free-solid-svg-icons';
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 
@@ -14,8 +22,7 @@ import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
     FontAwesomeModule,
     About,
     Experience,
-    Projects,
-    NgClass
+    Projects
   ],
   templateUrl: './home-page.html',
   styleUrl: './home-page.css',
@@ -27,15 +34,16 @@ export class HomePage {
   faLinkedin = faLinkedin;
   protected readonly faFileDownload = faFileDownload;
   protected isCvModalOpen = false;
-  protected readonly cvDownloadUrl = 'https://drive.google.com/uc?export=download&id=1BOUzJuSOYYIgNVAsDB4ZPorNClHM9_5_';
+  protected readonly cvFileUrl = '/cv/koorosh-roodbaraky-cv.pdf';
+  protected readonly cvDownloadUrl = this.cvFileUrl;
   protected readonly cvPreviewUrl: SafeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
-    'https://drive.google.com/file/d/1BOUzJuSOYYIgNVAsDB4ZPorNClHM9_5_/preview'
+    `${this.cvFileUrl}#view=FitH`
   );
 
   readonly sections = [
-    { id: 'about', label: 'About' },
-    { id: 'experience', label: 'Experience' },
-    { id: 'projects', label: 'Projects' },
+    {id: 'about', label: 'About'},
+    {id: 'experience', label: 'Experience'},
+    {id: 'projects', label: 'Projects'},
   ];
 
 
@@ -52,7 +60,7 @@ export class HomePage {
           }
         }
       },
-      { threshold: 0.7 }
+      {threshold: 0.7}
     );
 
     for (const section of this.sectionElements) {
